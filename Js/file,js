@@ -72,7 +72,7 @@ async function ReloadPage(){
     minTemp3.innerHTML = data.forecast.forecastday[2].day.mintemp_c + " " + 'C';
     icon2.setAttribute("src", data.forecast.forecastday[1].day.condition.icon);
     icon3.setAttribute("src", data.forecast.forecastday[2].day.condition.icon);
-    
+    weatherIcon.setAttribute("src", data.forecast.forecastday[0].day.condition.icon);
 }
 
 

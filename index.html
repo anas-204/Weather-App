@@ -55,8 +55,8 @@
     <section class="position-relative">
         <div class="top-pt pt-5">
             <form class="mx-auto col-10 col-lg-7 position-relative">
-                <input type="text" class="col-12 border-0 p-3 rounded-5 px-4" placeholder="Find your location..." id="form" oninput="getlocalTimes(); getlocationWeather(); ">
-                <button type="submit" class="position-absolute border-0 text-light">Find</button>
+                <input type="text" class="col-12 border-0 p-3 rounded-5 px-4" placeholder="Find your location..." id="form">
+                <button type="button" class="position-absolute border-0 text-light" onclick=" getlocalTimes(); getlocationWeather();">Find</button>
             </form>
         </div>
         <div class="cards col-10 col-lg-7 d-flex position-absolute">
@@ -96,7 +96,7 @@
                     <span id="day2"></span>
                 </div>
                 <div class="card-body body-2 text-center">
-                    <img src="/images/sunny.png" alt="sunny" class="my-5" id="icon2">
+                    <img src="" alt="sunny" class="my-5" id="icon2">
                     <div class="day-temp text-light my-1 " id="max2"></div>
                     <div class="night-temp mb-3 " id="min2"></div>
                     <div class="status my-1" id="desc2">Sunny</div>
@@ -108,7 +108,7 @@
                     <span id="day3"></span>
                 </div>
                 <div class="card-body body-3 text-center">
-                    <img src="/images/sunny.png" alt="sunny" class="my-5" id="icon3">
+                    <img src="" alt="sunny" class="my-5" id="icon3">
                     <div class="day-temp text-light my-1" id="max3"></div>
                     <div class="night-temp mb-3" id="min3"></div>
                     <div class="status my-1" id="desc3">Sunny</div>
