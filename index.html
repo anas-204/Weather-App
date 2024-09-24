@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./Css/Style.css">
+    <title> Weather App </title>
+
+</head>
+
+<body>
+    <header class="d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg col-12">
+            <div class="container-fluid">
+                <a class="navbar-brand col-lg-4 text-center px-3 py-auto" href="">
+                    <img src="./images/logo.png" alt="logo" class="pb-4 me-2">
+                    <div class="logo d-inline-block pt-3">
+                        <h3>Weather</h3>
+                        <p>tagline goes here</p>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list text-light"></i>
+                </button>
+                <div class="collapse navbar-collapse col-lg-6" id="navbarNav">
+                    <ul class="navbar-nav col-lg-8 d-flex justify-content-evenly">
+                        <li class="nav-item">
+                            <a class="nav-link active px-4 py-1" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active px-4 py-1" aria-current="page" href="#">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active px-4 py-1" aria-current="page" href="#">Live cameras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active px-4 py-1" aria-current="page" href="#">Photos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active px-4 py-1" aria-current="page" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="position-relative">
+        <div class="top-pt pt-5">
+            <form class="mx-auto col-10 col-lg-7 position-relative">
+                <input type="text" class="col-12 border-0 p-3 rounded-5 px-4" placeholder="Find your location..." id="form" oninput="getlocalTimes(); getlocationWeather(); ">
+                <button type="submit" class="position-absolute border-0 text-light">Find</button>
+            </form>
+        </div>
+        <div class="cards col-10 col-lg-7 d-flex position-absolute">
+
+            <div class="card col-12 col-lg-4 border-0 d-flex flex-column">
+                <div class="card-head d-flex justify-content-between px-2 py-2 col-12">
+                    <span id="day1"> </span>
+                    <span id="date"></span>
+                </div>
+                <div class="card-body body-1">
+                    <h5 class="text-light" id="city"></h5>
+                    <h2 class="text-light" id="temp"></h2>
+                    <img src="" alt="cloudy" class="m-2" id="icon1">
+                    <br>
+                    <br>
+                    <span id="describtion"></span>
+                    <div class="details my-3">
+                        <span class="mx-2">
+                            <img src="/images/icon-umberella.png" alt="">
+                          <span id="rainPos"></span> 
+                        </span>
+                        <span class="mx-2">
+                            <img src="/images/icon-wind.png" alt="">
+                            <span id="windSpeed" ></span>
+                        </span>
+                        <span class="mx-2">
+                            <img src="/images/icon-compass.png" alt="">
+                            <span id="windDir"></span>
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-lg-4  border-0">
+                <div class="card-head py-2 d-flex justify-content-center">
+                    <span id="day2"></span>
+                </div>
+                <div class="card-body body-2 text-center">
+                    <img src="/images/sunny.png" alt="sunny" class="my-5" id="icon2">
+                    <div class="day-temp text-light my-1 " id="max2"></div>
+                    <div class="night-temp mb-3 " id="min2"></div>
+                    <div class="status my-1" id="desc2">Sunny</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-lg-4  border-0">
+                <div class="card-head py-2 d-flex justify-content-center">
+                    <span id="day3"></span>
+                </div>
+                <div class="card-body body-3 text-center">
+                    <img src="/images/sunny.png" alt="sunny" class="my-5" id="icon3">
+                    <div class="day-temp text-light my-1" id="max3"></div>
+                    <div class="night-temp mb-3" id="min3"></div>
+                    <div class="status my-1" id="desc3">Sunny</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="row g-0 col-lg-10 mx-auto">
+            <form class=" col-11 col-lg-6 position-relative mx-auto mb-2">
+                <input type="text" class=" col-12 border-0 p-3 rounded-5 px-4" placeholder="Enter Your email to subscribe...">
+                <button type="submit" class="position-absolute border-0 text-light">Subscribe</button>
+            </form>
+            <div class="media col-12 col-lg-2 mt-3 text-center">
+                <a class="social col-lg-4 "><i class="fa-brands fa-facebook-f "></i></a>
+                <a class="social col-lg-4"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="social col-lg-4"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright col-lg-2 text-light mt-4 text-center "> Developed by Anas Elsheikh.</div>
+        </div>
+      
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./Js/bootstrap.bundle.min.js"></script>
+    <script src="./Js/file,js"></script>
+</body>
+
+</html>
