@@ -6,9 +6,13 @@ var desc2 = document.getElementById("desc2");
 var desc3 = document.getElementById("desc3");
 var weatherDescribtion = document.getElementById("describtion");
 var temp = document.getElementById("temp");
-var rainPos = document.getElementById("rainPos");
-var windSpeed = document.getElementById("windSpeed");
-var direction = document.getElementById("windDir");
+var rainPos1 = document.getElementById("rainPos1");
+var windSpeed1 = document.getElementById("windSpeed1");
+var direction1 = document.getElementById("windDir1");
+var rainPos2 = document.getElementById("rainPos2");
+var windSpeed2 = document.getElementById("windSpeed2");
+var rainPos3 = document.getElementById("rainPos3");
+var windSpeed3 = document.getElementById("windSpeed3");
 var day1 = document.getElementById("day1");
 var day2 = document.getElementById("day2");
 var day3 = document.getElementById("day3");
@@ -66,13 +70,23 @@ async function ReloadPage(){
 
     var response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Tanta&days=3`);
     data = await response.json();
-    maxTemp2.innerHTML = data.forecast.forecastday[1].day.maxtemp_c + " " + 'C';
-    minTemp2.innerHTML = data.forecast.forecastday[1].day.mintemp_c + " " + 'C';
-    maxTemp3.innerHTML = data.forecast.forecastday[2].day.maxtemp_c + " " + 'C';
-    minTemp3.innerHTML = data.forecast.forecastday[2].day.mintemp_c + " " + 'C';
+    console.log(data);
+    
+    maxTemp2.innerHTML = data.forecast.forecastday[1].day.maxtemp_c + " " + '&deg;C';
+    minTemp2.innerHTML = data.forecast.forecastday[1].day.mintemp_c + " " + '&deg;C';
+    maxTemp3.innerHTML = data.forecast.forecastday[2].day.maxtemp_c + " " + '&deg;C';
+    minTemp3.innerHTML = data.forecast.forecastday[2].day.mintemp_c + " " + '&deg;C';
+    desc2.innerHTML = data.forecast.forecastday[1].day.condition.text;
+    desc3.innerHTML = data.forecast.forecastday[2].day.condition.text;
     icon2.setAttribute("src", data.forecast.forecastday[1].day.condition.icon);
     icon3.setAttribute("src", data.forecast.forecastday[2].day.condition.icon);
     weatherIcon.setAttribute("src", data.forecast.forecastday[0].day.condition.icon);
+
+    rainPos2.innerHTML = data.forecast.forecastday[1].day.avghumidity + '%';
+    windSpeed2.innerHTML =  data.forecast.forecastday[1].day.maxwind_kph +' '+ "Km/h";
+    
+    rainPos3.innerHTML = data.forecast.forecastday[2].day.avghumidity + '%';
+    windSpeed3.innerHTML = data.forecast.forecastday[2].day.maxwind_kph +' '+ "Km/h";
 }
 
 
@@ -80,24 +94,62 @@ window.addEventListener('Reload',ReloadPage());
 
 function changingTexts(data){
     cityName.innerHTML = data.location.name;
-    temp.innerHTML = data.current.temp_c + ' ' +'C';
-    rainPos.innerHTML = data.current.humidity + '%';
-    windSpeed.innerHTML = data.current.wind_kph +' '+ "Km/h";
+    temp.innerHTML = data.current.temp_c + ' ' +'&deg;C';
+    rainPos1.innerHTML = data.current.humidity + '%';
+    windSpeed1.innerHTML = data.current.wind_kph +' '+ "Km/h";
     switch(data.current.wind_dir){
         case 'N':
-            direction.innerHTML = "North";
+            direction1.innerHTML = "North";
             break;
         case 'E':
-            direction.innerHTML = "East";
+            direction1.innerHTML = "East";
             break;   
         case 'S':
-            direction.innerHTML = "South";
+            direction1.innerHTML = "South";
             break;
         case 'W':
-            direction.innerHTML = "West";
-            break;     
+            direction1.innerHTML = "West";
+            break;
+        case 'NE':
+            direction1.innerHTML = "Northeast";
+            break;
+        case 'SE':
+            direction1.innerHTML = "Southeast";
+            break;
+        case 'SW':
+            direction1.innerHTML = "Southwest";
+            break;
+        case 'NW':
+            direction1.innerHTML = "Northwest";
+            break;
+        case 'NNE':
+            direction1.innerHTML = "North";
+            break;
+        case 'ENE':
+            direction1.innerHTML = "East";
+            break;
+        case 'ESE':
+            direction1.innerHTML = "East";
+            break;
+        case 'SSE ':
+            direction1.innerHTML = "South";
+            break;
+        case 'SSW ':
+            direction1.innerHTML = "South";
+            break;
+        case 'WSW':
+            direction1.innerHTML = "West";
+            break;        
+        case 'WNW':
+            direction1.innerHTML = "West";
+            break;
+        case 'NNW':
+            direction1.innerHTML = "North";
+            break;
     }
+   
 }
+
 
 
 async function getlocationWeather(){
@@ -153,10 +205,10 @@ async function getlocalTimes() {
     data = await response.json();
     console.log(data);
 
-    maxTemp2.innerHTML = data.forecast.forecastday[1].day.maxtemp_c + " " + 'C';
-    minTemp2.innerHTML = data.forecast.forecastday[1].day.mintemp_c + " " + 'C';
-    maxTemp3.innerHTML = data.forecast.forecastday[2].day.maxtemp_c + " " + 'C';
-    minTemp3.innerHTML = data.forecast.forecastday[2].day.mintemp_c + " " + 'C';
+    maxTemp2.innerHTML = data.forecast.forecastday[1].day.maxtemp_c + " " + '&degC';
+    minTemp2.innerHTML = data.forecast.forecastday[1].day.mintemp_c + " " + '&degC';
+    maxTemp3.innerHTML = data.forecast.forecastday[2].day.maxtemp_c + " " + '&degC';
+    minTemp3.innerHTML = data.forecast.forecastday[2].day.mintemp_c + " " + '&degC';
     icon2.setAttribute("src", data.forecast.forecastday[1].day.condition.icon);
     icon3.setAttribute("src", data.forecast.forecastday[2].day.condition.icon);
     desc2.innerHTML = data.forecast.forecastday[1].day.condition.text;
